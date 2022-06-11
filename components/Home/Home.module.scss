@@ -1,0 +1,44 @@
+.home_container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.services_container {
+    display: flex;
+}
+
+.service {
+    height: 200px;
+    width: 200px;
+    border-radius: 6px;
+    box-shadow: 0 0 10px lightgray;
+    text-align: center;
+    font-size: 18px;
+    font-weight: 600;
+    margin: 0 10px;
+    cursor: pointer;
+}
+
+.swiper_container {
+    position: relative;
+    z-index: 0;
+    width: 90vw;
+    height: 240px;
+
+    @media (max-width: 1600px) {
+        height: 240px;
+    }
+
+    @media (max-width: 1440px) {
+        height: 190px;
+    }
+
+    @media (max-width: 991px) {
+        height: 130px;
+    }
+
+    @media (max-width: 768px) {
+        height: 100px;
+    }
+}

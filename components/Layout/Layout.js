@@ -4,27 +4,35 @@ import Image from 'next/image';
 import Logo from '../../assets/images/gblogo.png'
 import styles from './Layout.module.scss';
 
-const Layout = () => {
+const Layout = (props) => {
     return (
-        <AppBar
-            style={{
-                backgroundColor: '#373837'
-            }}
-            position="static"
-        >
-            <div
+        <>
+            <AppBar
                 style={{
-                    height: '100px'
+                    backgroundColor: '#373837'
                 }}
+                position="static"
             >
-                <Image
-                    src={Logo}
-                    height={100}
-                    width={400}
+                <div
+                    style={{
+                        height: '100px'
+                    }}
+                >
+                    <Image
+                        src={Logo}
+                        height={100}
+                        width={400}
                     // layout="responsive"
-                />
-            </div>
-        </AppBar>
+                    />
+                </div>
+            </AppBar>
+
+            <main
+                className={styles.main}
+            >
+                {props.children}
+            </main>
+        </>
     )
 }
 
