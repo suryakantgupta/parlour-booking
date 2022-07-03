@@ -10,8 +10,11 @@ import Banner2 from '../../assets/images/banner2.jpg';
 import Banner3 from '../../assets/images/banner3.jpg';
 import { useFormik } from 'formik';
 import { Button, TextField } from '@mui/material';
+import { useRouter } from 'next/router';
 
 const Home = () => {
+
+    const router = useRouter()
 
     const formik = useFormik({
         initialValues: {
@@ -98,6 +101,19 @@ const Home = () => {
                         </SwiperSlide>
                     </Swiper>
                 </div>
+
+                <div
+                    className={styles.my_work_btn_container}
+                >
+                    <Button
+                        variant='contained'
+                        color='secondary'
+                        onClick={() => router.push('/gallery')}
+                    >
+                        View My Work
+                    </Button>
+                </div>
+
                 <h1>
                     Services
                 </h1>

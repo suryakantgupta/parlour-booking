@@ -3,6 +3,7 @@ import React from 'react';
 import Image from 'next/image';
 import Logo from '../../assets/images/gblogo.png'
 import styles from './Layout.module.scss';
+import Link from 'next/link';
 
 const Layout = (props) => {
     return (
@@ -18,12 +19,16 @@ const Layout = (props) => {
                         height: '100px'
                     }}
                 >
-                    <Image
-                        src={Logo}
-                        height={100}
-                        width={400}
-                    // layout="responsive"
-                    />
+                    <Link
+                        href='/'
+                    >
+                        <Image
+                            src={Logo}
+                            height={100}
+                            width={400}
+                        // layout="responsive"
+                        />
+                    </Link>
                 </div>
             </AppBar>
 
