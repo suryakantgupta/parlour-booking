@@ -7,6 +7,7 @@ import SwiperCore, { Navigation, Autoplay, Lazy, Pagination, EffectCoverflow } f
 
 import '../styles/globals.css'
 import Layout from '../components/Layout/Layout';
+import { ToastContainer } from "react-toastify";
 
 const clientSideEmotionCache = createEmotionCache();
 
@@ -20,6 +21,19 @@ function MyApp({ Component, emotionCache = clientSideEmotionCache, pageProps }) 
         <Layout>
           <Component {...pageProps} />
         </Layout>
+
+        <ToastContainer
+              position="top-right"
+              autoClose={5000}
+              hideProgressBar={true}
+              newestOnTop={false}
+              closeOnClick={true}
+              rtl={false}
+              pauseOnFocusLoss
+              draggable
+              pauseOnHover
+              theme="colored"
+            />
       </ThemeProvider>
     </CacheProvider>
   )

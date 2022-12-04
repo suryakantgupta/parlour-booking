@@ -11,33 +11,79 @@ import Banner3 from '../../assets/images/banner3.jpg';
 import { useFormik } from 'formik';
 import { Button, TextField } from '@mui/material';
 import { useRouter } from 'next/router';
+import TabsSection from '../Library/TabsSection/TabsSection';
+import ImageGrid from '../Library/ImageGrid/ImageGrid';
+
+const allImages = [
+    '/categories/all/1.jpg',
+    '/categories/all/2.png',
+    '/categories/all/3.png',
+    '/categories/all/4.jpg',
+    '/categories/all/5.jpg',
+    '/categories/all/6.jpg',
+    '/categories/all/7.jpg',
+    '/categories/all/8.jpg',
+    '/categories/all/9.jpg',
+    '/categories/all/10.jpg',
+    '/categories/all/11.jpg',
+    '/categories/all/12.jpg',
+    '/categories/all/13.jpg',
+    '/categories/all/14.jpg',
+    '/categories/all/15.jpg',
+    '/categories/all/16.jpg',
+    '/categories/all/17.jpg',
+    '/categories/all/18.jpg',
+    '/categories/all/19.jpg',
+    '/categories/all/20.jpg',
+    '/categories/all/21.jpg',
+    '/categories/all/22.jpg',
+    '/categories/all/23.jpg'
+]
+
+const tabs = [
+    {
+        label: 'All'
+    },
+    {
+        label: 'Makeup'
+    },
+    {
+        label: 'Hair'
+    },
+    {
+        label: 'Tatoos'
+    }
+]
 
 const Home = () => {
 
     const router = useRouter()
-
-    const formik = useFormik({
-        initialValues: {
-            fullName: '',
-            email: '',
-            mobile: null,
-            note: ''
-        },
-
-        onSubmit: (values) => {
-
-        }
-    })
-
 
     return (
         <div
             className={styles.form_home_container}
         >
             <div
+                style={{
+                    marginTop: 18
+                }}
+            >
+                <Button
+                    style={{
+                        backgroundColor: 'black'
+                    }}
+                    variant="contained"
+                    onClick={() => {
+                        router.push('book-now')
+                    }}
+                >
+                    Book Now
+                </Button>
+            </div>
+            <div
                 className={styles.home_container}
             >
-                <div
+                {/* <div
                     className={styles.swiper_container}
                 >
                     <Swiper
@@ -112,9 +158,23 @@ const Home = () => {
                     >
                         View My Work
                     </Button>
-                </div>
+                </div> */}
 
-                <h1>
+                <TabsSection
+                    tabs={tabs}
+                    tabsBody={[
+                        {
+                            component: (
+                                <ImageGrid
+                                    images={allImages}
+                                />
+                            )
+                        }
+                    ]}
+                />
+
+
+                {/* <h1>
                     Services
                 </h1>
                 <div
@@ -164,103 +224,25 @@ const Home = () => {
                         </div>
                         Beautician
                     </div>
-                </div>
+                </div> */}
             </div>
 
             <div
-                className={styles.form_container}
+                style={{
+                    marginTop: 18
+                }}
             >
-                <form
+                <Button
                     style={{
-                        width: '100%'
+                        backgroundColor: 'black'
                     }}
-                    onSubmit={formik.handleSubmit}
+                    variant="contained"
+                    onClick={() => {
+                        router.push('book-now')
+                    }}
                 >
-                    <h1
-                        style={{
-                            textAlign: 'center'
-                        }}
-                    >
-                        Contact Form
-                    </h1>
-                    <div
-                        className={styles.formsection}
-                    >
-                        <TextField
-                            label="Full Name"
-                            variant="outlined"
-                            id="fullName"
-                            name="fullName"
-                            type="text"
-                            fullWidth
-                            value={formik.values.fullName}
-                            onChange={formik.handleChange}
-                            error={formik.touched.fullName && Boolean(formik.errors.fullName)}
-                            helperText={formik.touched.fullName && formik.errors.fullName}
-                        />
-                    </div>
-
-                    <div
-                        className={styles.formsection}
-                    >
-                        <TextField
-                            label="Email"
-                            variant="outlined"
-                            id="email"
-                            name="email"
-                            type="email"
-                            fullWidth
-                            value={formik.values.email}
-                            onChange={formik.handleChange}
-                            error={formik.touched.email && Boolean(formik.errors.email)}
-                            helperText={formik.touched.email && formik.errors.email}
-                        />
-                    </div>
-
-                    <div
-                        className={styles.formsection}
-                    >
-                        <TextField
-                            label="Mobile No"
-                            variant="outlined"
-                            id="mobile"
-                            name="mobile"
-                            type="text"
-                            fullWidth
-                            value={formik.values.mobile}
-                            onChange={formik.handleChange}
-                            error={formik.touched.mobile && Boolean(formik.errors.mobile)}
-                            helperText={formik.touched.mobile && formik.errors.mobile}
-                        />
-                    </div>
-
-                    <div
-                        className={styles.formsection}
-                    >
-                        <TextField
-                            label="Note"
-                            variant="outlined"
-                            id="note"
-                            name="note"
-                            type="text"
-                            fullWidth
-                            multiline
-                            rows={2}
-                            value={formik.values.note}
-                            onChange={formik.handleChange}
-                            error={formik.touched.note && Boolean(formik.errors.note)}
-                            helperText={formik.touched.note && formik.errors.note}
-                        />
-                    </div>
-
-                    <Button
-                        type='submit'
-                        variant='contained'
-                        color='secondary'
-                    >
-                        Submit
-                    </Button>
-                </form>
+                    Book Now
+                </Button>
             </div>
         </div>
     )
