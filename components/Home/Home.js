@@ -44,15 +44,15 @@ const tabs = [
     {
         label: 'All'
     },
-    {
-        label: 'Makeup'
-    },
-    {
-        label: 'Hair'
-    },
-    {
-        label: 'Tatoos'
-    }
+    // {
+    //     label: 'Makeup'
+    // },
+    // {
+    //     label: 'Hair'
+    // },
+    // {
+    //     label: 'Tatoos'
+    // }
 ]
 
 const Home = () => {
