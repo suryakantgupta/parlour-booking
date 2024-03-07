@@ -17,25 +17,30 @@ const ImageGrid = (props) => {
         ))} */}
 
             <ImageList
-            sx={{ width: 300, height: 450 }}
-            cols={3}
-            rowHeight={164}
-            variant="woven"
+                sx={{ width: 300, height: 450 }}
+                cols={3}
+                rowHeight={164}
+                variant="woven"
             >
-                {props.images.map((item) => (
-                    <ImageListItem
-                        key={item}
-                        onClick={() => {
-                            setShowImage(true)
-                            setSelectedImage(item)
-                        }}
-                    >
-                        <img
-                            src={item}
-                            loading="lazy"
-                        />
-                    </ImageListItem>
-                ))}
+                {Array.from(Array(43).keys()).map((data, index) => {
+                    if (!index) {
+                        return
+                    }
+                    return (
+                        <ImageListItem
+                            key={data}
+                            onClick={() => {
+                                setShowImage(true)
+                                setSelectedImage(`/galleryimages/${data}.jpeg`)
+                            }}
+                        >
+                            <img
+                                src={`/galleryimages/${data}.jpeg`}
+                                loading="lazy"
+                            />
+                        </ImageListItem>
+                    )
+                })}
             </ImageList>
 
             <Dialog

@@ -42,11 +42,14 @@ const Gallery = () => {
             <div
                 className={styles.image_container}
             >
-                {images.map((data) => {
+                {Array.from(Array(43).keys()).map((data, index) => {
+                    if(!index){
+                        return
+                    }
                     return (
                         <img
                             className={styles.images}
-                            src={data}
+                            src={`/galleryimages/${data}.jpeg`}
                         />
                     )
                 })}
